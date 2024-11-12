@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Control de Luces y ventiladores</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- SweetAlert2 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.8/dist/sweetalert2.min.css" rel="stylesheet">
+</head>
+<body>
+  <h1>CONTROL DE LUCES Y VENTILADORES</h1>
+  <!-- Controles para el primer LED -->
+  <h2>LUCES</h2>
+  <button id="cambiarEstadoBtn1">Apagar/Encender Luces</button>
+
+  <button id="botonProgramar">Programar Encendido/Apagado</button>
+
+  <div><label>Programado para: Encender: 11:57 y Apagar: 12:14</label></div>
+
+  <!-- Menú de opciones oculto inicialmente -->
+  <div id="menuOpciones" style="display: none">
+      <button onclick="programar('encendido')" id="programarBtn1">Programar Encendido</button>
+      <button onclick="programar('apagado')" id="programarBtn2">Programar Apagado</button>
+      <button onclick="programar('encendido-y-apagado')" id="programarBtn1">Programar Encendido y Apagado</button>
+  </div>
+  
+
+ <!--    <button id="programarBtn1">Programar Cambio Estado de Luces</button>      -->
+
+  <!-- Controles para el segundo LED -->
+  <h2>VENTILADORES</h2>
+  <button id="cambiarEstadoBtn2">Apagar/Encender Ventiladores</button>
+  <button id="programarBtn2">Programar Cambio Estado de VENTILADORES</button>
+  
+
+  <!-- Historial de encendidos y apagados -->
+  <h2>Historial</h2>
+  <button id="mostrarhisto">Mostrar</button>
+  <div id="registros-container" style="display: none;">
+    <table id="tablaHistorial" border="1">
+      <thead>
+        <tr>
+          <th>Tipo</th>
+          <th>Fecha</th>
+        </tr>
+      </thead>
+      <tbody id="registros"></tbody>
+    </table>
+  </div>
+
+
+  <!-- Firebase Libraries -->
+  <script type="module" src="/js/firebaseConfig.js"></script>
+  <script type="module" src="/js/ledControl.js"></script>
+  <script src="/js/botones.js"></script>
+
+  <!-- SweetAlert2 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.8/dist/sweetalert2.min.js"></script>
+</body>
+</html>
