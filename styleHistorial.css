@@ -1,0 +1,140 @@
+
+
+    .containerr {
+      width: 70%;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+
+    label {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    input[type="datetime-local"], select {
+      padding: 5px;
+      margin: 5px 10px 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+  
+    button {
+      padding: 10px 10px;
+      margin: auto;
+      display: flex;
+      background-color: #000e23;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+
+    .table-container {
+      display: none;
+      margin-top: 20px;
+      margin-bottom: 50px;
+      max-height: 300px; /* Limita la altura máxima de la tabla */
+      overflow-y: auto; /* Activa el scroll vertical cuando el contenido exceda el límite de altura */
+    }
+    
+    button:hover {
+      background-color: #000000;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      border: 1px solid #ddd;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      padding: 12px 15px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #0072af;
+      color: white;
+      position: sticky; /* Fija el encabezado */
+      top: -1px; /* Fija el encabezado en la parte superior */
+      z-index: 1; /* Asegura que el encabezado quede por encima de las filas */
+    }
+
+    tr:nth-child(even) {
+      background-color: #e6e6e6;
+    }
+
+    tr:hover {
+      background-color: #0072af29;
+    }
+
+    /* Estilos para el Card de Filtros */
+    .filters-card {
+      margin-top: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 10px;
+    }
+
+    .filters {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap; /* Hace que los elementos de los filtros se acomoden mejor */
+    }
+
+    .filters input[type="datetime-local"], .filters select {
+      margin-right: 20px;
+      margin-bottom: 10px;
+    }
+
+    .filters button {
+      padding: 10px 20px;
+      background-color: #0072af;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .filters button:hover {
+      background-color: #000000;
+    }
+
+    .filters-container, .table-container {
+      display: none;
+    }
+
+    @media (max-width: 728px) {
+      .containerr {
+        width: 100%;
+        border: #000000;
+        margin: 0 auto;
+        padding: 20px;
+      }
+    }
+    
+    @media (max-width:728px) {
+      h1{
+        font-size: 20px;
+      }
+
+      .table-container{
+        font-size: 14px;
+        color: #000000c9;
+      }
+    }

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Flatpickr CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
+  <!-- Flatpickr JS -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+  <title>Control IoT</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styleHistorial.css">
+ 
+</head>
+<body>
+  <header class="header">
+    <img src="https://i.gifer.com/7S99.gif">
+    <h1>Control IoT</h1>
+  </header>
+
+
+  <main class="container">
+    <section class="card">
+      <div class="card-header">
+        <h2>LUCES</h2>
+        <label class="switch">
+          <input type="checkbox" id="lucesSwitch">
+          <span class="slider"></span>
+        </label>
+        <span class="switch-label" id="switchLabel"></span>
+      </div>
+      <p>Activa o desactiva las Luces.</p>
+      <h3>Configuración</h3>
+      <div class="schedule">
+  
+        <button class="btn" id="programarEncendidoBtn" style="text-align: center;">Programar Encendido</button>
+        <button class="btn" id="programarApagadoBtn" style="text-align: center;">Programar Apagado</button>
+  
+      </div>
+  
+      <!-- Mensajes de configuración -->
+      <div id="encendidoMessage" style="display: none; margin-top: 20px;">
+        <p><strong>Configuración de encendido guardada con éxito.</strong></p>
+        <div id="encendidoDetails"></div>
+        <button class="btn" id="cancelarEncendidoBtn">Borrar Configuración de Encendido</button> <!-- Nuevo botón -->
+      </div>
+  
+      <div id="apagadoMessage" style="display: none; margin-top: 20px;">
+        <p><strong>Configuración de apagado guardada con éxito.</strong></p>
+        <div id="apagadoDetails"></div>
+        <button class="btn" id="cancelarApagadoBtn">Borrar Configuración de Apagado</button> <!-- Nuevo botón -->
+      </div>
+
+    
+      <!-- Modal de configuración -->
+      <div class="modal" id="modal-config">
+        <div class="modal-content">
+          <h3 id="modalTitle">Configurar Hora y Rango de Fechas</h3>
+          <label for="hora" id="labelhoral">Hora:</label>
+          <input type="time" id="hora"><hr style="border: 1px solid #000; width: 60%; margin: 15px auto;">
+          
+          <div class="calendar-container">
+            <h4>Seleccionar Rango de Fechas.</h4>
+            <input type="text" id="calendar" placeholder="Selecciona un rango de fechas">
+          </div><hr style="border: 1px solid #000; width: 30%; margin: 20px auto;">
+
+    
+          <div class="modal-footer">
+            <button class="btn" id="guardarConfigBtn">Guardar Configuración</button>
+            <button class="btn" id="closeModalBtn">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </section>
+        
+    
+    
+<!-- Sección Ventiladores -->
+<section class="card">
+  <div class="card-header">
+    <h2>VENTILADORES</h2>
+    <label class="switch">
+      <input type="checkbox" id="ventiladoresSwitch">
+      <span class="slider"></span>
+    </label>
+    <span class="switch-label" id="switchLabelVentiladores"></span>
+  </div>
+  <p>Activa o desactiva los ventiladores.</p>
+  <h3>Configuración</h3>
+  <div class="schedule">
+    <button class="btn" id="programarEncendidoVentiladorBtn">Programar Encendido</button>
+    <button class="btn" id="programarApagadoVentiladorBtn">Programar Apagado</button>
+  </div>
+
+  <!-- Mensajes de configuración -->
+  <div id="encendidoMessage" style="display: none; margin-top: 20px;">
+    <p><strong>Configuración de encendido guardada con éxito.</strong></p>
+    <div id="encendidoDetails"></div>
+    <button class="btn" id="cancelarEncendidoVentiladorBtn">Borrar Configuración de Encendido</button> <!-- Nuevo botón -->
+  </div>
+
+  <div id="apagadoMessage" style="display: none; margin-top: 20px;">
+    <p><strong>Configuración de apagado guardada con éxito.</strong></p>
+    <div id="apagadoDetails"></div>
+    <button class="btn" id="cancelarApagadoVentiladorBtn">Borrar Configuración de Apagado</button> <!-- Nuevo botón -->
+  </div>
+
+  <!-- Modal de configuración -->
+  <div class="modal" id="modal-config-ventiladores">
+    <div class="modal-content">
+      <h3 id="modalTitleVentiladores">Configurar Hora y Rango de Fechas</h3>
+      <label for="hora-ventiladores">Hora:</label>
+      <input type="time" id="hora-ventiladores"><hr style="border: 1px solid #000; width: 60%; margin: 15px auto;">
+
+      <div class="calendar-container">
+        <h4>Seleccionar Rango de Fechas.</h4>
+        <input type="text" id="calendarVentiladores" placeholder="Selecciona un rango de fechas">
+      </div><hr style="border: 1px solid #000; width: 30%; margin: 20px auto;">
+
+
+      <div class="modal-footer">
+        <button class="btn" id="guardarConfigVentiladoresBtn">Guardar Configuración</button>
+        <button class="btn" id="closeModalVentiladoresBtn">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  </main>
+  
+<!--HISTORIAL-->
+
+<script type="module" src="js/historial.js"></script>
+
+<link rel="stylesheet" href="styleHistorial.css">
+
+  <div class="containerr">
+    <h1>Historial de Dispositivos</h1>
+
+    <!-- Botón de Ver Historial -->
+    <button id="verHistorialBtn">Ver Historial</button>
+
+    <!-- Filtros (Card) -->
+    <div class="filters-container" id="filtersContainer">
+      <div class="filters-card">
+        <div class="filters">
+          <div>
+            <label for="fechaInicio">Fecha Inicio:</label>
+            <input type="datetime-local" id="fechaInicio">
+          </div>
+          <div>
+            <label for="fechaFin">Fecha Fin:</label>
+            <input type="datetime-local" id="fechaFin">
+          </div>
+          <div>
+            <label for="tipoDispositivo">Dispositivo:</label>
+            <select id="tipoDispositivo">
+              <option value="">Todos</option>
+              <option value="ventilador">Ventilador</option>
+              <option value="luces">Luces</option>
+            </select>
+          </div>
+          <button class="filters-btn" id="buscarBtn">Buscar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabla de Registros -->
+    <div class="table-container" id="tableContainer">
+      <table>
+        <thead>
+          <tr>
+            <th>Tipo de Acción</th>
+            <th>Fecha</th>
+          </tr>
+        </thead>
+        <tbody id="registros">
+          <!-- Los registros serán insertados aquí -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+
+
+  
+  <footer class="footer">
+    <p> Sahagún - Córdoba <br>© 2024 Control IoT. <br>Todos los derechos reservados. <br> ©Myller Montesino - Jesith
+      Otero - Mario Arroyo - Elder Urzola</p>
+  </footer>
+  
+
+</div>
+  <script type="module" src="/js/firebaseConfig.js"></script>
+  <script type="module" src="/js/ledControl.js"></script>
+  <script src="js/script.js"></script>
+  <script type="module" src="js/botonluces.js"></script>
+  <script type="module" src="js/progLuz.js"></script>
+  <script type="module" src="js/progVenti.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script type="module" src="js/calendario.js"></script>
+  <script type="module" src="js/calendariov.js"></script>
+
+</body>
+</html>
